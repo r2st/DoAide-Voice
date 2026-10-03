@@ -1,11 +1,9 @@
-export default function StatCard({ label, value, sub }) {
+export default function StatCard({ label, value, sub, tone }) {
   return (
-    <div className="card" style={{ textAlign: "center" }}>
-      <div style={{ fontSize: "0.75rem", fontWeight: 500, color: "var(--color-text-secondary)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
-        {label}
-      </div>
-      <div style={{ fontSize: "1.75rem", fontWeight: 700, margin: "0.25rem 0" }}>{value}</div>
-      {sub && <div style={{ fontSize: "0.8rem", color: "var(--color-text-tertiary)" }}>{sub}</div>}
+    <div className={`stat-card ${tone ? `tone-${tone}` : ""}`}>
+      <div className="stat-label">{label}</div>
+      <div className="stat-value">{value}</div>
+      {sub && <div className="stat-sub">{sub}</div>}
     </div>
   );
 }

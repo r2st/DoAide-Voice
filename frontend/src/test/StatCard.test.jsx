@@ -13,4 +13,9 @@ describe("StatCard", () => {
     render(<StatCard label="Usage" value="25/50" sub="50% used" />);
     expect(screen.getByText("50% used")).toBeInTheDocument();
   });
+
+  it("applies tone class", () => {
+    const { container } = render(<StatCard label="Errors" value={5} tone="bad" />);
+    expect(container.querySelector(".tone-bad")).toBeTruthy();
+  });
 });

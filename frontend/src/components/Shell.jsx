@@ -1,120 +1,114 @@
-import { useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
-import { useTheme } from "../hooks/useTheme";
+import ThemeToggle from "./ThemeToggle";
 
-const NAV_ITEMS = [
-  { to: "/dashboard", label: "Dashboard", icon: "📊" },
-  { to: "/agents", label: "Agents", icon: "🤖" },
-  { to: "/calls", label: "Calls", icon: "📞" },
-  { to: "/campaigns", label: "Campaigns", icon: "📢" },
-  { to: "/knowledge", label: "Knowledge", icon: "📚" },
-  { to: "/analytics", label: "Analytics", icon: "📈" },
-  { to: "/settings", label: "Settings", icon: "⚙️" },
+const LINKS = [
+  { to: "/dashboard", label: "Dashboard", end: true },
+  { to: "/agents", label: "Agents" },
+  { to: "/calls", label: "Calls" },
+  { to: "/campaigns", label: "Campaigns" },
+  { to: "/knowledge", label: "Knowledge" },
+  { to: "/analytics", label: "Analytics" },
+  { to: "/settings", label: "Settings" },
 ];
 
 export default function Shell({ children }) {
-  const { user, logout } = useAuth();
-  const { theme, setTheme } = useTheme();
+  const { logout } = useAuth();
   const navigate = useNavigate();
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
+  const [navOpen, setNavOpen] = useState(false);
+  const toggleRef = useRef(null);
 
-  const handleLogout = () => { logout(); navigate("/"); };
+  useEffect(() => { setNavOpen(false); }, [location.pathname]);
 
-  const themeOptions = ["system", "light", "dark"];
-  const nextTheme = () => {
-    const idx = themeOptions.indexOf(theme);
-    setTheme(themeOptions[(idx + 1) % themeOptions.length]);
-  };
+  useEffect(() => {
+    if (!navOpen) return undefined;
+    function onKeyDown(event) {
+      if (event.key === "Escape") {
+        setNavOpen(false);
+        toggleRef.current?.focus();
+      }
+    }
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [navOpen]);
+
+  function handleLogout() {
+    logout();
+    navigate("/");
+  }
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh" }}>
-      <button
-        className="mobile-nav-toggle"
-        onClick={() => setMobileOpen(!mobileOpen)}
-        aria-label="Toggle navigation"
-      >
-        ☰
-      </button>
-      <nav className={`sidebar ${mobileOpen ? "sidebar--open" : ""}`}>
-        <div className="sidebar-header">
-          <Link to="/dashboard" style={{ textDecoration: "none", color: "var(--color-text)" }}>
-            <strong>DoAide Voice</strong>
-          </Link>
+    <div className="shell">
+      <a className="skip-link" href="#main">Skip to content</a>
+
+      <header className="shell-header">
+        <div className="brand">
+          <svg viewBox="0 0 400 320" className="brand-robot" aria-hidden="true">
+            <defs><linearGradient id="hg-nav" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#F0B429" /><stop offset="100%" stopColor="#D4A017" /></linearGradient></defs>
+            <line x1="200" y1="45" x2="200" y2="20" stroke="#F0B429" strokeWidth="6" strokeLinecap="round" />
+            <circle cx="200" cy="14" r="10" fill="#F0B429" /><circle cx="200" cy="14" r="5" fill="#F7CC5F" />
+            <rect x="110" y="50" width="180" height="140" rx="35" fill="url(#hg-nav)" />
+            <rect x="130" y="68" width="140" height="105" rx="25" fill="#D4A017" opacity="0.4" />
+            <ellipse cx="165" cy="115" rx="18" ry="20" fill="#0A0A0B" /><ellipse cx="235" cy="115" rx="18" ry="20" fill="#0A0A0B" />
+            <circle cx="170" cy="113" r="8" fill="#F7CC5F" /><circle cx="240" cy="113" r="8" fill="#F7CC5F" />
+            <circle cx="174" cy="109" r="3" fill="white" opacity="0.7" /><circle cx="244" cy="109" r="3" fill="white" opacity="0.7" />
+            <path d="M170 155Q200 178 230 155" stroke="#0A0A0B" strokeWidth="4" fill="none" strokeLinecap="round" />
+            <rect x="92" y="95" width="22" height="45" rx="8" fill="#D4A017" /><rect x="286" y="95" width="22" height="45" rx="8" fill="#D4A017" />
+            <rect x="175" y="190" width="50" height="14" rx="5" fill="#D4A017" />
+            <rect x="145" y="204" width="110" height="55" rx="18" fill="url(#hg-nav)" />
+            <circle cx="200" cy="228" r="7" fill="#0A0A0B" />
+            <path d="M145 218Q118 223 113 240Q108 257 120 262" stroke="#D4A017" strokeWidth="9" fill="none" strokeLinecap="round" /><circle cx="120" cy="265" r="7" fill="#D4A017" />
+            <path d="M255 218Q282 223 287 240Q292 257 280 262" stroke="#D4A017" strokeWidth="9" fill="none" strokeLinecap="round" /><circle cx="280" cy="265" r="7" fill="#D4A017" />
+          </svg>
+          <span className="brand-name">DoAide <span className="brand-accent">Voice</span></span>
         </div>
-        <div className="sidebar-nav">
-          {NAV_ITEMS.map(({ to, label, icon }) => (
+
+        <button
+          type="button"
+          ref={toggleRef}
+          className="nav-toggle"
+          aria-expanded={navOpen}
+          aria-controls="main-nav"
+          aria-label={navOpen ? "Close menu" : "Open menu"}
+          onClick={() => setNavOpen((open) => !open)}
+        >
+          <span className="nav-toggle-bars" aria-hidden="true" />
+        </button>
+
+        <nav
+          id="main-nav"
+          className={navOpen ? "shell-nav is-open" : "shell-nav"}
+          aria-label="Main"
+        >
+          {LINKS.map((link) => (
             <NavLink
-              key={to}
-              to={to}
-              className={({ isActive }) => `nav-link ${isActive ? "nav-link--active" : ""}`}
-              onClick={() => setMobileOpen(false)}
+              key={link.to}
+              to={link.to}
+              end={link.end}
+              className={({ isActive }) => (isActive ? "nav-link is-active" : "nav-link")}
             >
-              <span className="nav-icon">{icon}</span>
-              <span>{label}</span>
+              {link.label}
             </NavLink>
           ))}
-        </div>
-        <div className="sidebar-footer">
-          <button className="btn btn-secondary" style={{ width: "100%", justifyContent: "center" }} onClick={nextTheme}>
-            {theme === "dark" ? "🌙" : theme === "light" ? "☀️" : "💻"} {theme}
-          </button>
-          <div style={{ fontSize: "0.8rem", color: "var(--color-text-secondary)", marginTop: "0.5rem", textAlign: "center" }}>
-            {user?.email}
-          </div>
-          <button className="btn btn-secondary" style={{ width: "100%", marginTop: "0.5rem", justifyContent: "center" }} onClick={handleLogout}>
-            Logout
+        </nav>
+
+        <div className="shell-user">
+          <ThemeToggle />
+          <button type="button" className="btn btn-ghost" onClick={handleLogout}>
+            Sign out
           </button>
         </div>
-      </nav>
-      {mobileOpen && <div className="sidebar-backdrop" onClick={() => setMobileOpen(false)} />}
-      <main style={{ flex: 1, minWidth: 0 }}>
+      </header>
+
+      {navOpen && (
+        <div className="nav-scrim" onClick={() => setNavOpen(false)} aria-hidden="true" />
+      )}
+
+      <main className="shell-main" id="main">
         {children}
       </main>
-      <style>{`
-        .sidebar {
-          width: var(--nav-width);
-          background: var(--color-bg-secondary);
-          border-right: 1px solid var(--color-border);
-          display: flex;
-          flex-direction: column;
-          position: sticky;
-          top: 0;
-          height: 100vh;
-          overflow-y: auto;
-          z-index: 50;
-        }
-        .sidebar-header { padding: 1.25rem; border-bottom: 1px solid var(--color-border); }
-        .sidebar-nav { flex: 1; padding: 0.5rem; }
-        .sidebar-footer { padding: 1rem; border-top: 1px solid var(--color-border); }
-        .nav-link {
-          display: flex; align-items: center; gap: 0.75rem;
-          padding: 0.625rem 0.75rem; border-radius: var(--radius-md);
-          color: var(--color-text-secondary); text-decoration: none;
-          font-size: 0.875rem; font-weight: 500; transition: all 0.15s;
-        }
-        .nav-link:hover { background: var(--color-bg-tertiary); color: var(--color-text); text-decoration: none; }
-        .nav-link--active { background: var(--color-primary-light); color: var(--color-primary); }
-        .nav-icon { font-size: 1.1rem; width: 1.5rem; text-align: center; }
-        .mobile-nav-toggle {
-          display: none; position: fixed; top: 0.75rem; left: 0.75rem;
-          z-index: 60; background: var(--color-bg-secondary); border: 1px solid var(--color-border);
-          border-radius: var(--radius-md); padding: 0.5rem 0.75rem; font-size: 1.25rem;
-        }
-        .sidebar-backdrop { display: none; }
-        @media (max-width: 768px) {
-          .sidebar {
-            position: fixed; left: -100%; top: 0;
-            transition: left 0.2s;
-          }
-          .sidebar--open { left: 0; }
-          .mobile-nav-toggle { display: block; }
-          .sidebar-backdrop {
-            display: block; position: fixed; inset: 0;
-            background: rgba(0,0,0,0.4); z-index: 40;
-          }
-        }
-      `}</style>
     </div>
   );
 }

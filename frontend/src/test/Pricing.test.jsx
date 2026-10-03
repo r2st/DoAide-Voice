@@ -22,4 +22,14 @@ describe("Pricing page", () => {
     render(<MemoryRouter><Pricing /></MemoryRouter>);
     expect(screen.getByText("Most Popular")).toBeInTheDocument();
   });
+
+  it("renders page title", () => {
+    render(<MemoryRouter><Pricing /></MemoryRouter>);
+    expect(screen.getByText("Simple, Transparent Pricing")).toBeInTheDocument();
+  });
+
+  it("renders DoAide footer links", () => {
+    render(<MemoryRouter><Pricing /></MemoryRouter>);
+    expect(screen.getByText("doaide.com")).toBeInTheDocument();
+  });
 });

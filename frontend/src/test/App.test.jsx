@@ -30,12 +30,12 @@ function renderApp(route = "/") {
 describe("App routing", () => {
   it("renders landing page at /", () => {
     renderApp("/");
-    expect(screen.getByText("for Your Business")).toBeInTheDocument();
+    expect(screen.getByText("AI Voice Agents for Your Business")).toBeInTheDocument();
   });
 
   it("renders login page at /login", () => {
     renderApp("/login");
-    expect(screen.getByText("Welcome back")).toBeInTheDocument();
+    expect(screen.getByText("Sign in to your account")).toBeInTheDocument();
   });
 
   it("renders register page at /register", () => {
@@ -45,11 +45,11 @@ describe("App routing", () => {
 
   it("renders pricing page at /pricing", () => {
     renderApp("/pricing");
-    expect(screen.getByText("Simple, transparent pricing")).toBeInTheDocument();
+    expect(screen.getByText("Simple, Transparent Pricing")).toBeInTheDocument();
   });
 
   it("redirects dashboard to login when not authenticated", () => {
     renderApp("/dashboard");
-    expect(screen.getByText("Welcome back")).toBeInTheDocument();
+    expect(screen.getByText("Sign in to your account")).toBeInTheDocument();
   });
 });
