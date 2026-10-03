@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /agents
+Disallow: /calls
+Disallow: /campaigns
+Disallow: /knowledge
+Disallow: /analytics
+Disallow: /settings
+
+Sitemap: https://voice.doaide.com/sitemap.xml

@@ -339,7 +339,7 @@ export default function Landing() {
             <div className="landing-hero-robot-wrap">
               <HeroRobot color="#F0B429" />
             </div>
-            <h1 className="landing-headline">AI Voice Agents for Your Business</h1>
+            <h1 className="landing-headline">Your AI Receptionist is Ready</h1>
             <p className="landing-subtitle">
               Build, deploy, and manage intelligent voice agents that handle inbound
               calls, run outbound campaigns, and deliver real-time insights — powered
@@ -366,6 +366,58 @@ export default function Landing() {
             <AuthForm />
           </div>
         </div>
+
+        <section className="landing-section" aria-labelledby="tools-heading">
+          <h2 id="tools-heading" className="landing-section-title">Free Tools — No Login Required</h2>
+          <div className="landing-features-grid" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
+            <Link to="/demo" className="landing-feature-card" style={{ textDecoration: "none" }}>
+              <div className="landing-feature-icon">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#F0B429" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" />
+                  <path d="M19 10v2a7 7 0 01-14 0v-2" />
+                  <line x1="12" y1="19" x2="12" y2="23" />
+                  <line x1="8" y1="23" x2="16" y2="23" />
+                </svg>
+              </div>
+              <h3>Voice AI Demo</h3>
+              <p>Try talking to an AI agent right now.</p>
+            </Link>
+            <Link to="/calculator" className="landing-feature-card" style={{ textDecoration: "none" }}>
+              <div className="landing-feature-icon">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#F0B429" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="4" y="2" width="16" height="20" rx="2" />
+                  <line x1="8" y1="6" x2="16" y2="6" />
+                  <line x1="8" y1="10" x2="10" y2="10" /><line x1="14" y1="10" x2="16" y2="10" />
+                  <line x1="8" y1="14" x2="10" y2="14" /><line x1="14" y1="14" x2="16" y2="14" />
+                  <line x1="8" y1="18" x2="16" y2="18" />
+                </svg>
+              </div>
+              <h3>ROI Calculator</h3>
+              <p>See how much AI voice agents save you.</p>
+            </Link>
+            <Link to="/scripts" className="landing-feature-card" style={{ textDecoration: "none" }}>
+              <div className="landing-feature-icon">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#F0B429" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="8" y1="13" x2="16" y2="13" /><line x1="8" y1="17" x2="12" y2="17" />
+                </svg>
+              </div>
+              <h3>Script Library</h3>
+              <p>6 ready-to-use AI voice scripts.</p>
+            </Link>
+            <Link to="/embed" className="landing-feature-card" style={{ textDecoration: "none" }}>
+              <div className="landing-feature-icon">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#F0B429" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
+                </svg>
+              </div>
+              <h3>Embed Widget</h3>
+              <p>Add AI voice to your website.</p>
+            </Link>
+          </div>
+        </section>
 
         <section className="landing-section" aria-labelledby="features-heading">
           <h2 id="features-heading" className="landing-section-title">Everything You Need for Voice AI</h2>
@@ -428,7 +480,15 @@ export default function Landing() {
             <a href="#faq-heading" onClick={(e) => { e.preventDefault(); document.getElementById("faq-heading")?.scrollIntoView({ behavior: "smooth" }); }}>FAQ</a>
           </div>
           <div className="landing-footer-col">
+            <h4>Free Tools</h4>
+            <Link to="/demo">Voice AI Demo</Link>
+            <Link to="/calculator">ROI Calculator</Link>
+            <Link to="/scripts">Script Templates</Link>
+            <Link to="/embed">Embed Widget</Link>
+          </div>
+          <div className="landing-footer-col">
             <h4>Resources</h4>
+            <Link to="/blog">Blog</Link>
             <a href="#how-heading" onClick={(e) => { e.preventDefault(); document.getElementById("how-heading")?.scrollIntoView({ behavior: "smooth" }); }}>How It Works</a>
           </div>
           <div className="landing-footer-col">

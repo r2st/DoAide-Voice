@@ -24,7 +24,7 @@ function renderLanding() {
 describe("Landing page", () => {
   it("renders hero headline", () => {
     renderLanding();
-    expect(screen.getByText("AI Voice Agents for Your Business")).toBeInTheDocument();
+    expect(screen.getByText("Your AI Receptionist is Ready")).toBeInTheDocument();
   });
 
   it("renders feature cards", () => {
@@ -83,5 +83,20 @@ describe("Landing page", () => {
     renderLanding();
     expect(screen.getByText("Free forever")).toBeInTheDocument();
     expect(screen.getByText("From $49/mo")).toBeInTheDocument();
+  });
+
+  it("renders free tools section", () => {
+    renderLanding();
+    expect(screen.getByText("Free Tools — No Login Required")).toBeInTheDocument();
+    expect(screen.getAllByText("Voice AI Demo").length).toBeGreaterThanOrEqual(1);
+    expect(screen.getAllByText("ROI Calculator").length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByText("Script Library")).toBeInTheDocument();
+    expect(screen.getAllByText("Embed Widget").length).toBeGreaterThanOrEqual(1);
+  });
+
+  it("renders footer with free tools and blog links", () => {
+    renderLanding();
+    expect(screen.getByText("Free Tools")).toBeInTheDocument();
+    expect(screen.getByText("Blog")).toBeInTheDocument();
   });
 });

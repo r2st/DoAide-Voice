@@ -30,7 +30,7 @@ function renderApp(route = "/") {
 describe("App routing", () => {
   it("renders landing page at /", () => {
     renderApp("/");
-    expect(screen.getByText("AI Voice Agents for Your Business")).toBeInTheDocument();
+    expect(screen.getByText("Your AI Receptionist is Ready")).toBeInTheDocument();
   });
 
   it("renders login page at /login", () => {

@@ -3,14 +3,19 @@ import Shell from "./components/Shell";
 import { useAuth } from "./hooks/useAuth";
 import AgentBuilder from "./pages/AgentBuilder";
 import Analytics from "./pages/Analytics";
+import Blog from "./pages/Blog";
+import Calculator from "./pages/Calculator";
 import CallHistory from "./pages/CallHistory";
 import Campaigns from "./pages/Campaigns";
 import Dashboard from "./pages/Dashboard";
+import Demo from "./pages/Demo";
+import Embed from "./pages/Embed";
 import Knowledge from "./pages/Knowledge";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Pricing from "./pages/Pricing";
 import Register from "./pages/Register";
+import Scripts from "./pages/Scripts";
 import Settings from "./pages/Settings";
 
 function Protected({ children }) {
@@ -27,6 +32,12 @@ export default function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/pricing" element={<Pricing />} />
+      <Route path="/demo" element={<Demo />} />
+      <Route path="/calculator" element={<Calculator />} />
+      <Route path="/scripts" element={<Scripts />} />
+      <Route path="/embed" element={<Embed />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/blog/:slug" element={<Blog />} />
       <Route path="/dashboard" element={<Protected><Dashboard /></Protected>} />
       <Route path="/agents" element={<Protected><AgentBuilder /></Protected>} />
       <Route path="/calls" element={<Protected><CallHistory /></Protected>} />
