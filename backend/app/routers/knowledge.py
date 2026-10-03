@@ -3,7 +3,7 @@ from __future__ import annotations
 import os
 import uuid
 
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, status
+from fastapi import APIRouter, Depends, HTTPException, Response, UploadFile, status
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
@@ -76,12 +76,12 @@ async def upload_doc(
     return KnowledgeDocOut.model_validate(doc)
 
 
-@router.delete("/{doc_id}", status_code=status.HTTP_204_NO_CONTENT)
+@router.delete("/{doc_id}", status_code=status.HTTP_204_NO_CONTENT, response_class=Response)
 def delete_doc(
     doc_id: int,
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
-) -> None:
+) -> Response:
     doc = db.get(KnowledgeDoc, doc_id)
     if doc is None or doc.business_id != current_user.business_id:
         raise HTTPException(status_code=404, detail="Document not found")
@@ -89,3 +89,4 @@ def delete_doc(
         os.remove(doc.file_path)
     db.delete(doc)
     db.commit()
+    return Response(status_code=status.HTTP_204_NO_CONTENT)

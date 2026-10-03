@@ -11,7 +11,7 @@ describe("Landing page", () => {
 
   it("renders feature cards", () => {
     render(<MemoryRouter><Landing /></MemoryRouter>);
-    expect(screen.getByText("AI Voice Agents")).toBeInTheDocument();
+    expect(screen.getAllByText("AI Voice Agents").length).toBeGreaterThanOrEqual(1);
     expect(screen.getByText("Real-time Analytics")).toBeInTheDocument();
     expect(screen.getByText("Knowledge Base")).toBeInTheDocument();
   });

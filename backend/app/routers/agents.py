@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Response, status
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
@@ -73,14 +73,15 @@ def update_agent(
     return AgentOut.model_validate(agent)
 
 
-@router.delete("/{agent_id}", status_code=status.HTTP_204_NO_CONTENT)
+@router.delete("/{agent_id}", status_code=status.HTTP_204_NO_CONTENT, response_class=Response)
 def delete_agent(
     agent_id: int,
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
-) -> None:
+) -> Response:
     agent = db.get(VoiceAgent, agent_id)
     if agent is None or agent.business_id != current_user.business_id:
         raise HTTPException(status_code=404, detail="Agent not found")
     db.delete(agent)
     db.commit()
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
