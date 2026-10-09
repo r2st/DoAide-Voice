@@ -45,7 +45,7 @@ def create_app() -> FastAPI:
         allow_headers=["*"],
     )
 
-    from app.routers import agents, analytics, auth, calls, campaigns, health, knowledge, settings as settings_router, twilio_webhook
+    from app.routers import agents, analytics, auth, calls, campaigns, health, knowledge, settings as settings_router, tools, twilio_webhook
 
     prefix = settings.api_v1_prefix
     app.include_router(auth.router, prefix=prefix)
@@ -55,6 +55,7 @@ def create_app() -> FastAPI:
     app.include_router(knowledge.router, prefix=prefix)
     app.include_router(analytics.router, prefix=prefix)
     app.include_router(settings_router.router, prefix=prefix)
+    app.include_router(tools.router, prefix=prefix)
     app.include_router(health.router, prefix=prefix)
     app.include_router(twilio_webhook.router, prefix=prefix)
 

@@ -11,6 +11,7 @@ os.environ.update(
         "OPENROUTER_API_KEY": "",
         "TWILIO_ACCOUNT_SID": "",
         "TWILIO_AUTH_TOKEN": "",
+        "GEMINI_API_KEY": "",
     }
 )
 

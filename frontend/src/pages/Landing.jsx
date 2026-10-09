@@ -416,6 +416,49 @@ export default function Landing() {
               <h3>Embed Widget</h3>
               <p>Add AI voice to your website.</p>
             </Link>
+            <Link to="/tts" className="landing-feature-card" style={{ textDecoration: "none" }}>
+              <div className="landing-feature-icon">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#F0B429" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                  <path d="M19.07 4.93a10 10 0 010 14.14" />
+                  <path d="M15.54 8.46a5 5 0 010 7.07" />
+                </svg>
+              </div>
+              <h3>Text-to-Speech</h3>
+              <p>Preview text with different voices.</p>
+            </Link>
+            <Link to="/recorder" className="landing-feature-card" style={{ textDecoration: "none" }}>
+              <div className="landing-feature-icon">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#F0B429" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" />
+                  <circle cx="12" cy="12" r="4" fill="#F0B429" />
+                </svg>
+              </div>
+              <h3>Voice Recorder</h3>
+              <p>Record audio right in your browser.</p>
+            </Link>
+            <Link to="/stt" className="landing-feature-card" style={{ textDecoration: "none" }}>
+              <div className="landing-feature-icon">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#F0B429" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+                  <line x1="8" y1="9" x2="16" y2="9" />
+                  <line x1="8" y1="13" x2="13" y2="13" />
+                </svg>
+              </div>
+              <h3>Speech-to-Text</h3>
+              <p>Transcribe speech in real time.</p>
+            </Link>
+            <Link to="/script-writer" className="landing-feature-card" style={{ textDecoration: "none" }}>
+              <div className="landing-feature-icon">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#F0B429" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                  <path d="M2 17l10 5 10-5" />
+                  <path d="M2 12l10 5 10-5" />
+                </svg>
+              </div>
+              <h3>AI Script Writer</h3>
+              <p>Generate voice scripts with AI.</p>
+            </Link>
           </div>
         </section>
 
@@ -485,6 +528,10 @@ export default function Landing() {
             <Link to="/calculator">ROI Calculator</Link>
             <Link to="/scripts">Script Templates</Link>
             <Link to="/embed">Embed Widget</Link>
+            <Link to="/tts">Text-to-Speech</Link>
+            <Link to="/recorder">Voice Recorder</Link>
+            <Link to="/stt">Speech-to-Text</Link>
+            <Link to="/script-writer">AI Script Writer</Link>
           </div>
           <div className="landing-footer-col">
             <h4>Resources</h4>

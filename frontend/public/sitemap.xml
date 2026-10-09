@@ -6,10 +6,17 @@
   <url><loc>https://voice.doaide.com/calculator</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://voice.doaide.com/scripts</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://voice.doaide.com/embed</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://voice.doaide.com/tts</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://voice.doaide.com/recorder</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://voice.doaide.com/stt</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://voice.doaide.com/script-writer</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://voice.doaide.com/blog</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://voice.doaide.com/blog/ai-voice-agents-vs-human-agents</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://voice.doaide.com/blog/how-to-automate-customer-calls</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://voice.doaide.com/blog/voice-ai-for-small-business</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://voice.doaide.com/blog/best-text-to-speech-tools-2026</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://voice.doaide.com/blog/speech-to-text-for-business-calls</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://voice.doaide.com/blog/ai-voice-script-writing-guide</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://voice.doaide.com/login</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
   <url><loc>https://voice.doaide.com/register</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
 </urlset>

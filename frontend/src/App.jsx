@@ -15,8 +15,12 @@ import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Pricing from "./pages/Pricing";
 import Register from "./pages/Register";
+import ScriptWriter from "./pages/ScriptWriter";
 import Scripts from "./pages/Scripts";
 import Settings from "./pages/Settings";
+import SpeechToText from "./pages/SpeechToText";
+import TextToSpeech from "./pages/TextToSpeech";
+import VoiceRecorder from "./pages/VoiceRecorder";
 
 function Protected({ children }) {
   const { user, loading } = useAuth();
@@ -38,6 +42,10 @@ export default function App() {
       <Route path="/embed" element={<Embed />} />
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/:slug" element={<Blog />} />
+      <Route path="/tts" element={<TextToSpeech />} />
+      <Route path="/recorder" element={<VoiceRecorder />} />
+      <Route path="/stt" element={<SpeechToText />} />
+      <Route path="/script-writer" element={<ScriptWriter />} />
       <Route path="/dashboard" element={<Protected><Dashboard /></Protected>} />
       <Route path="/agents" element={<Protected><AgentBuilder /></Protected>} />
       <Route path="/calls" element={<Protected><CallHistory /></Protected>} />

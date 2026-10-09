@@ -30,7 +30,7 @@ describe("Blog page", () => {
   it("renders read article links", () => {
     renderBlog();
     const readLinks = screen.getAllByText(/Read article/);
-    expect(readLinks).toHaveLength(3);
+    expect(readLinks).toHaveLength(6);
   });
 
   it("renders a blog post when slug matches", () => {

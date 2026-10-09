@@ -52,6 +52,12 @@ class Settings(BaseSettings):
     openrouter_timeout_seconds: float = 60.0
     openrouter_max_attempts: int = Field(default=3, ge=1, le=10)
 
+    # AI (Gemini)
+    gemini_api_key: str = ""
+    gemini_model: str = "gemini-3.8-flash"
+    gemini_timeout_seconds: float = 60.0
+    gemini_max_attempts: int = Field(default=3, ge=1, le=10)
+
     # Uploads
     upload_dir: str = "./data/knowledge"
     max_upload_mb: int = 10
