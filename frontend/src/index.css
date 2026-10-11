@@ -1,40 +1,6 @@
 @import './doaide-theme.css';
 
 :root {
-  --ink: #E5E7EB;
-  --ink-soft: #9CA3AF;
-  --ink-strong: #fff;
-  --ink-faint: rgba(255, 255, 255, 0.35);
-  --ink-muted: rgba(255, 255, 255, 0.45);
-  --line: #2A2A2D;
-  --surface: #1A1A1D;
-  --canvas: #0A0A0B;
-  --brand: #F0B429;
-  --brand-dark: #D4A017;
-  --brand-text: #0A0A0B;
-  --brand-hover: #F7D070;
-  --good: #34D399;
-  --warn: #FBBF24;
-  --bad: #F87171;
-  --good-bg: rgba(52, 211, 153, 0.12);
-  --warn-bg: rgba(251, 191, 36, 0.12);
-  --bad-bg: rgba(248, 113, 113, 0.12);
-  --glass: rgba(16, 16, 18, 0.8);
-  --glass-border: rgba(255, 255, 255, 0.07);
-  --glass-inset: rgba(255, 255, 255, 0.04);
-  --glass-input: rgba(10, 10, 11, 0.6);
-  --glass-input-border: rgba(255, 255, 255, 0.12);
-  --glass-input-placeholder: rgba(255, 255, 255, 0.25);
-  --glass-tab-border: rgba(255, 255, 255, 0.08);
-  --glass-feature-border: rgba(240, 180, 41, 0.2);
-  --glass-feature-bg: rgba(240, 180, 41, 0.04);
-  --scrim: rgba(16, 24, 42, 0.25);
-  --skeleton-mid: #2A2A2D;
-  --radius: 10px;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-[data-theme="light"] {
   --ink: #1A1A1D;
   --ink-soft: #52525B;
   --ink-strong: #0A0A0B;
@@ -43,8 +9,10 @@
   --line: #E4E4E7;
   --surface: #F4F4F5;
   --canvas: #FAFAFA;
+  --brand: #0D9488;
+  --brand-dark: #0B7C72;
   --brand-text: #fff;
-  --brand-hover: #D4A017;
+  --brand-hover: #0B7C72;
   --good: #059669;
   --warn: #D97706;
   --bad: #DC2626;
@@ -58,11 +26,74 @@
   --glass-input-border: rgba(0, 0, 0, 0.15);
   --glass-input-placeholder: rgba(0, 0, 0, 0.35);
   --glass-tab-border: rgba(0, 0, 0, 0.1);
-  --glass-feature-border: rgba(180, 130, 10, 0.25);
-  --glass-feature-bg: rgba(240, 180, 41, 0.06);
+  --glass-feature-border: rgba(13, 148, 136, 0.25);
+  --glass-feature-bg: rgba(13, 148, 136, 0.06);
   --scrim: rgba(0, 0, 0, 0.15);
   --skeleton-mid: #E4E4E7;
+  --radius: 10px;
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #E5E7EB;
+    --ink-soft: #9CA3AF;
+    --ink-strong: #fff;
+    --ink-faint: rgba(255, 255, 255, 0.35);
+    --ink-muted: rgba(255, 255, 255, 0.45);
+    --line: #2A2A2D;
+    --surface: #1A1A1D;
+    --canvas: #0A0A0B;
+    --brand-hover: #5EEAD4;
+    --good: #34D399;
+    --warn: #FBBF24;
+    --bad: #F87171;
+    --good-bg: rgba(52, 211, 153, 0.12);
+    --warn-bg: rgba(251, 191, 36, 0.12);
+    --bad-bg: rgba(248, 113, 113, 0.12);
+    --glass: rgba(16, 16, 18, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.07);
+    --glass-inset: rgba(255, 255, 255, 0.04);
+    --glass-input: rgba(10, 10, 11, 0.6);
+    --glass-input-border: rgba(255, 255, 255, 0.12);
+    --glass-input-placeholder: rgba(255, 255, 255, 0.25);
+    --glass-tab-border: rgba(255, 255, 255, 0.08);
+    --glass-feature-border: rgba(13, 148, 136, 0.3);
+    --glass-feature-bg: rgba(13, 148, 136, 0.08);
+    --scrim: rgba(16, 24, 42, 0.25);
+    --skeleton-mid: #2A2A2D;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+}
+
+[data-theme="dark"] {
+  --ink: #E5E7EB;
+  --ink-soft: #9CA3AF;
+  --ink-strong: #fff;
+  --ink-faint: rgba(255, 255, 255, 0.35);
+  --ink-muted: rgba(255, 255, 255, 0.45);
+  --line: #2A2A2D;
+  --surface: #1A1A1D;
+  --canvas: #0A0A0B;
+  --brand-hover: #5EEAD4;
+  --good: #34D399;
+  --warn: #FBBF24;
+  --bad: #F87171;
+  --good-bg: rgba(52, 211, 153, 0.12);
+  --warn-bg: rgba(251, 191, 36, 0.12);
+  --bad-bg: rgba(248, 113, 113, 0.12);
+  --glass: rgba(16, 16, 18, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.07);
+  --glass-inset: rgba(255, 255, 255, 0.04);
+  --glass-input: rgba(10, 10, 11, 0.6);
+  --glass-input-border: rgba(255, 255, 255, 0.12);
+  --glass-input-placeholder: rgba(255, 255, 255, 0.25);
+  --glass-tab-border: rgba(255, 255, 255, 0.08);
+  --glass-feature-border: rgba(13, 148, 136, 0.3);
+  --glass-feature-bg: rgba(13, 148, 136, 0.08);
+  --scrim: rgba(16, 24, 42, 0.25);
+  --skeleton-mid: #2A2A2D;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 * { box-sizing: border-box; }
@@ -71,7 +102,7 @@ body {
   margin: 0;
   background: var(--canvas);
   color: var(--ink);
-  font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font: 15px/1.5 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   transition: background-color 200ms ease, color 200ms ease;
 }
 
@@ -94,19 +125,21 @@ a { color: var(--brand); }
   border-bottom: 1px solid var(--line);
 }
 .brand { display: flex; align-items: center; gap: 0.5rem; font-weight: 700; }
-.brand-robot { width: 28px; height: auto; flex-shrink: 0; }
 .brand-name {
-  font-family: var(--doaide-font-display, "Instrument Serif", Georgia, serif);
-  font-size: 1.2rem; font-weight: 400; color: var(--ink-strong);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 1.2rem; font-weight: 700; color: var(--ink-strong);
+  display: flex; align-items: center; gap: 0;
 }
-.brand-accent { font-style: italic; color: var(--brand); }
+.brand-doaide { color: #0D9488; }
+.brand-sep { color: var(--ink-soft); margin: 0 6px; font-weight: 300; }
+.brand-product { font-weight: 600; }
 .shell-nav { display: flex; gap: 0.5rem; flex: 1; }
 .nav-link {
   padding: 0.4rem 0.75rem; border-radius: var(--radius);
   color: var(--ink-soft); text-decoration: none;
 }
 .nav-link.is-active {
-  background: rgba(240, 180, 41, 0.12); color: var(--brand); font-weight: 600;
+  background: rgba(13, 148, 136, 0.12); color: var(--brand); font-weight: 600;
 }
 .shell-user { display: flex; align-items: center; gap: 1rem; }
 .theme-toggle {
@@ -153,12 +186,12 @@ label { font-weight: 600; font-size: 0.9rem; }
   width: 100%; max-width: 380px; text-align: center;
   animation: auth-fade-up 0.6s ease-out;
 }
-.auth-robot { width: 72px; height: auto; margin: 0 auto 20px; display: block; }
 .auth-title {
-  font-family: var(--doaide-font-display, "Instrument Serif", Georgia, serif);
-  font-size: 42px; font-weight: 400; color: var(--ink-strong); margin: 0; line-height: 1.1;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 36px; font-weight: 800; color: var(--ink-strong); margin: 0; line-height: 1.1;
 }
-.auth-title-accent { font-style: italic; color: #F0B429; }
+.auth-title-doaide { color: #0D9488; }
+.auth-title-sep { color: var(--ink-soft); font-weight: 300; margin: 0 4px; }
 .auth-subtitle { font-size: 14px; color: var(--ink-muted); margin: 8px 0 24px; }
 .auth-card {
   width: 100%; background: var(--glass); backdrop-filter: blur(4px);
@@ -181,7 +214,7 @@ label { font-weight: 600; font-size: 0.9rem; }
   transition: border-color 150ms ease;
 }
 .auth-form input:focus {
-  border-color: rgba(240, 180, 41, 0.5) !important; outline: none; box-shadow: none !important;
+  border-color: rgba(13, 148, 136, 0.5) !important; outline: none; box-shadow: none !important;
 }
 .auth-form input::placeholder { color: var(--glass-input-placeholder) !important; }
 .auth-form .field-error {
@@ -194,7 +227,7 @@ label { font-weight: 600; font-size: 0.9rem; }
   background: var(--brand) !important; color: var(--brand-text) !important;
   border: none !important; border-radius: 8px; padding: 10px 16px;
   font-size: 14px; font-weight: 500;
-  font-family: var(--doaide-font, "Schibsted Grotesk", system-ui, sans-serif);
+  font-family: 'Inter', system-ui, sans-serif;
   width: 100%; cursor: pointer; margin-top: 16px; transition: background 150ms ease;
 }
 .auth-submit:hover:not(:disabled) { background: var(--brand-hover) !important; }
@@ -203,7 +236,7 @@ label { font-weight: 600; font-size: 0.9rem; }
   font-size: 14px; color: var(--ink-faint); margin-top: 20px;
 }
 .auth-switch button {
-  background: none; border: none; color: #F0B429;
+  background: none; border: none; color: #0D9488;
   font-size: 14px; font-family: inherit; cursor: pointer; padding: 0;
 }
 .auth-switch button:hover { color: var(--brand-hover); }
@@ -214,7 +247,7 @@ label { font-weight: 600; font-size: 0.9rem; }
 .auth-tab {
   flex: 1; padding: 10px 16px; background: none; border: none;
   border-bottom: 2px solid transparent;
-  font-family: var(--doaide-font, "Schibsted Grotesk", system-ui, sans-serif);
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 14px; font-weight: 500; color: var(--ink-faint);
   cursor: pointer; transition: color 150ms ease, border-color 150ms ease;
 }
@@ -223,7 +256,7 @@ label { font-weight: 600; font-size: 0.9rem; }
 
 /* ---- Landing page ---- */
 .landing-root {
-  --accent: #F0B429; --accent-dark: #D4A017; --accent-light: #F7CC5F;
+  --accent: #0D9488; --accent-dark: #0B7C72; --accent-light: #5EEAD4;
   --text-muted-landing: #71717A;
   min-height: 100vh; display: flex; flex-direction: column;
   background: var(--canvas); color: var(--ink);
@@ -275,10 +308,13 @@ label { font-weight: 600; font-size: 0.9rem; }
   text-decoration: none; color: var(--ink);
 }
 .landing-brand-text {
-  font-family: 'Instrument Serif', Georgia, serif;
-  font-size: 24px; font-weight: 400; letter-spacing: -0.3px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 22px; font-weight: 700; letter-spacing: -0.3px;
+  display: flex; align-items: center;
 }
-.landing-brand-text em { color: var(--accent); font-style: italic; }
+.landing-brand-doaide { color: #0D9488; }
+.landing-brand-sep { color: var(--ink-soft); font-weight: 300; margin: 0 6px; }
+.landing-brand-product { font-weight: 600; color: var(--ink-strong); }
 
 .landing-split {
   position: relative; z-index: 5;
@@ -292,18 +328,15 @@ label { font-weight: 600; font-size: 0.9rem; }
 .landing-left { flex: 1; min-width: 0; }
 .landing-right { width: 400px; flex-shrink: 0; }
 
-.landing-hero-robot-wrap {
+.landing-hero-icon-wrap {
   margin-bottom: 24px;
   animation: landing-float 4s ease-in-out infinite;
-  filter: drop-shadow(0 0 30px rgba(240, 180, 41, 0.3));
-}
-.landing-hero-robot .landing-antenna-glow {
-  animation: landing-pulse 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 30px rgba(13, 148, 136, 0.3));
 }
 
 .landing-headline {
-  font-family: var(--doaide-font-display, "Instrument Serif", Georgia, serif);
-  font-size: clamp(32px, 5vw, 56px); font-weight: 400; font-style: normal;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: clamp(32px, 5vw, 56px); font-weight: 800;
   letter-spacing: -0.5px; line-height: 1.1;
   color: var(--ink-strong); margin: 0 0 16px;
 }
@@ -347,8 +380,8 @@ label { font-weight: 600; font-size: 0.9rem; }
   max-width: 1200px; width: 100%; margin: 0 auto; padding: 60px 32px;
 }
 .landing-section-title {
-  font-family: var(--doaide-font-display, "Instrument Serif", Georgia, serif);
-  font-size: clamp(24px, 3vw, 36px); font-weight: 400;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: clamp(24px, 3vw, 36px); font-weight: 800;
   text-align: center; color: var(--ink-strong); margin: 0 0 40px;
 }
 
@@ -422,8 +455,8 @@ label { font-weight: 600; font-size: 0.9rem; }
   padding: 60px 32px; max-width: 600px; margin: 0 auto;
 }
 .landing-cta h2 {
-  font-family: var(--doaide-font-display, "Instrument Serif", Georgia, serif);
-  font-size: clamp(24px, 3vw, 36px); font-weight: 400;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: clamp(24px, 3vw, 36px); font-weight: 800;
   color: var(--ink-strong); margin: 0 0 12px;
 }
 .landing-cta p { color: var(--ink-soft); margin: 0 0 24px; }
@@ -467,6 +500,9 @@ label { font-weight: 600; font-size: 0.9rem; }
 }
 .landing-footer-home:hover { color: var(--accent); }
 .landing-footer-copy { color: var(--text-muted-landing); font-size: 12px; }
+.landing-footer-badge {
+  font-size: 11px; color: var(--ink-soft); letter-spacing: 0.02em;
+}
 .landing-pricing-link {
   display: inline-block; margin-top: 0.75rem; font-size: 0.95rem; font-weight: 600;
 }
@@ -529,7 +565,7 @@ label { font-weight: 600; font-size: 0.9rem; }
 .badge-success { background: var(--good-bg); color: var(--good); }
 .badge-warning { background: var(--warn-bg); color: var(--warn); }
 .badge-error { background: var(--bad-bg); color: var(--bad); }
-.badge-primary { background: rgba(240, 180, 41, 0.1); color: var(--brand); }
+.badge-primary { background: rgba(13, 148, 136, 0.1); color: var(--brand); }
 
 /* ---- Banners ---- */
 .banner {
@@ -547,8 +583,8 @@ label { font-weight: 600; font-size: 0.9rem; }
 .pricing-page { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
 .pricing-header { text-align: center; margin-bottom: 2.5rem; }
 .pricing-header h1 {
-  font-family: var(--doaide-font-display, 'Instrument Serif', Georgia, serif);
-  font-size: 2rem; color: var(--ink-strong); margin-bottom: 0.5rem;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 2rem; font-weight: 800; color: var(--ink-strong); margin-bottom: 0.5rem;
 }
 .pricing-header p { color: var(--ink-soft); font-size: 1.05rem; }
 .pricing-grid {
@@ -562,7 +598,7 @@ label { font-weight: 600; font-size: 0.9rem; }
 }
 .pricing-card-highlight {
   border-color: var(--brand);
-  box-shadow: var(--doaide-shadow-gold, 0 0 20px rgba(240,180,41,0.15));
+  box-shadow: var(--doaide-shadow-primary, 0 0 20px rgba(13,148,136,0.15));
   position: relative;
 }
 .pricing-badge {
@@ -575,8 +611,8 @@ label { font-weight: 600; font-size: 0.9rem; }
   font-size: 1.25rem; font-weight: 700; color: var(--ink-strong); margin-bottom: 0.5rem;
 }
 .pricing-price {
-  font-family: var(--doaide-font-display, 'Instrument Serif', Georgia, serif);
-  font-size: 1.75rem; color: var(--brand); margin-bottom: 1.25rem;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 1.75rem; font-weight: 800; color: var(--brand); margin-bottom: 1.25rem;
 }
 .pricing-features { list-style: none; padding: 0; margin: 0 0 1.5rem; flex: 1; }
 .pricing-features li {
@@ -668,7 +704,7 @@ label { font-weight: 600; font-size: 0.9rem; }
 
 @media (max-width: 768px) {
   .landing-root { min-height: 100dvh; }
-  .landing-hero-robot-wrap { display: none; }
+  .landing-hero-icon-wrap { display: none; }
   .landing-pipeline { display: none; }
   .landing-typewriter-wrap { display: none; }
   .landing-particles { display: none; }
@@ -702,8 +738,8 @@ label { font-weight: 600; font-size: 0.9rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .landing-particle, .landing-hero-robot-wrap,
-  .landing-hero-robot .landing-antenna-glow, .landing-cursor {
+  .landing-particle, .landing-hero-icon-wrap,
+  .landing-cursor {
     animation: none !important;
   }
   .landing-particle { opacity: 0.25 !important; }
@@ -726,8 +762,8 @@ label { font-weight: 600; font-size: 0.9rem; }
 .viral-page { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
 .viral-header { text-align: center; margin-bottom: 2.5rem; }
 .viral-header h1 {
-  font-family: var(--doaide-font-display, "Instrument Serif", Georgia, serif);
-  font-size: clamp(28px, 4vw, 42px); font-weight: 400; color: var(--ink-strong); margin: 0 0 0.75rem;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: clamp(28px, 4vw, 42px); font-weight: 800; color: var(--ink-strong); margin: 0 0 0.75rem;
 }
 .viral-header p { color: var(--ink-soft); font-size: 1.05rem; max-width: 600px; margin: 0 auto; line-height: 1.6; }
 
@@ -754,7 +790,7 @@ label { font-weight: 600; font-size: 0.9rem; }
   background: var(--surface); color: var(--ink); font: inherit; cursor: pointer;
   transition: border-color 0.15s, background 0.15s;
 }
-.demo-scenario-btn.is-active { border-color: var(--brand); background: rgba(240, 180, 41, 0.1); color: var(--brand); font-weight: 600; }
+.demo-scenario-btn.is-active { border-color: var(--brand); background: rgba(13, 148, 136, 0.1); color: var(--brand); font-weight: 600; }
 
 .demo-chat-container {
   border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
@@ -811,8 +847,8 @@ label { font-weight: 600; font-size: 0.9rem; }
   border-radius: 12px;
 }
 .demo-cta-section h2 {
-  font-family: var(--doaide-font-display, "Instrument Serif", Georgia, serif);
-  font-size: 1.5rem; font-weight: 400; color: var(--ink-strong); margin: 0 0 0.5rem;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 1.5rem; font-weight: 700; color: var(--ink-strong); margin: 0 0 0.5rem;
 }
 .demo-cta-section p { color: var(--ink-soft); margin: 0 0 1.25rem; }
 
@@ -831,8 +867,8 @@ label { font-weight: 600; font-size: 0.9rem; }
 .calc-stat-hero { background: var(--glass-feature-bg); border: 1px solid var(--glass-feature-border); border-radius: 10px; margin-bottom: 1rem; }
 .calc-stat-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-soft); }
 .calc-stat-value {
-  font-family: var(--doaide-font-display, "Instrument Serif", Georgia, serif);
-  font-size: 2rem; font-weight: 400; color: var(--brand); display: block; margin-top: 0.25rem;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 2rem; font-weight: 800; color: var(--brand); display: block; margin-top: 0.25rem;
 }
 .calc-stat-hero .calc-stat-value { font-size: 2.5rem; }
 .calc-stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
@@ -908,8 +944,8 @@ label { font-weight: 600; font-size: 0.9rem; }
 .blog-back { font-size: 0.9rem; display: inline-block; margin-bottom: 1rem; }
 .blog-article-header { margin-bottom: 2rem; }
 .blog-article-header h1 {
-  font-family: var(--doaide-font-display, "Instrument Serif", Georgia, serif);
-  font-size: clamp(28px, 4vw, 40px); font-weight: 400; color: var(--ink-strong); margin: 0.75rem 0 0.5rem;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: clamp(28px, 4vw, 40px); font-weight: 800; color: var(--ink-strong); margin: 0.75rem 0 0.5rem;
 }
 .blog-article-desc { font-size: 1.05rem; color: var(--ink-soft); line-height: 1.6; margin: 0; }
 .blog-article-body { line-height: 1.8; }

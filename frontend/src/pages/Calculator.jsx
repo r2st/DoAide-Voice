@@ -3,23 +3,6 @@ import { Link } from "react-router-dom";
 import ShareButtons from "../components/ShareButtons";
 import { usePageTitle } from "../hooks/usePageTitle";
 
-function RobotFace({ size = 32, color }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width={size} height={size} aria-hidden="true">
-      <line x1="16" y1="6" x2="16" y2="2" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="16" cy="1.5" r="1.5" fill={color} />
-      <rect x="5" y="6" width="22" height="17" rx="5" fill={color} />
-      <ellipse cx="11" cy="13" rx="2.5" ry="3" fill="#0A0A0B" />
-      <ellipse cx="21" cy="13" rx="2.5" ry="3" fill="#0A0A0B" />
-      <circle cx="11.5" cy="12.5" r="1" fill={color} opacity="0.6" />
-      <circle cx="21.5" cy="12.5" r="1" fill={color} opacity="0.6" />
-      <path d="M12 19Q16 22 20 19" stroke="#0A0A0B" strokeWidth="1.2" fill="none" strokeLinecap="round" />
-      <rect x="1" y="10" width="4" height="5" rx="2" fill={color} opacity="0.8" />
-      <rect x="27" y="10" width="4" height="5" rx="2" fill={color} opacity="0.8" />
-    </svg>
-  );
-}
-
 const DEFAULTS = { callsPerMonth: 2000, avgHandleMinutes: 5, agentHourlyRate: 20, automationRate: 70 };
 
 export default function Calculator() {
@@ -50,8 +33,11 @@ export default function Calculator() {
     <div className="landing-root">
       <header className="landing-header landing-visible">
         <a href="https://doaide.com" className="landing-brand">
-          <RobotFace size={28} color="#F0B429" />
-          <span className="landing-brand-text">DoAide <em>Voice</em></span>
+          <span className="landing-brand-text">
+            <span className="landing-brand-doaide">DoAide</span>
+            <span className="landing-brand-sep">|</span>
+            <span className="landing-brand-product">Voice</span>
+          </span>
         </a>
         <div style={{ marginLeft: "auto", display: "flex", gap: "0.75rem", alignItems: "center" }}>
           <Link to="/" className="btn btn-ghost">Home</Link>
@@ -138,9 +124,9 @@ export default function Calculator() {
       <footer className="landing-footer">
         <div className="landing-footer-bottom">
           <a href="https://doaide.com" className="landing-footer-home">
-            <RobotFace size={16} color="#F0B429" />
-            doaide.com
+            <span style={{ color: "#0D9488", fontWeight: 700 }}>DoAide</span>
           </a>
+          <span className="landing-footer-badge">A DoAide Product</span>
           <span className="landing-footer-copy">&copy; 2026 DoAide</span>
         </div>
       </footer>

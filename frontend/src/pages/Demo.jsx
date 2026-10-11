@@ -9,23 +9,6 @@ const DEMO_SCENARIOS = [
   { id: "appointment", label: "Appointment Booking", greeting: "Hello! Welcome to Acme Medical. I can help you schedule an appointment. What type of visit do you need?", responses: { default: "Let me check our availability for you. Do you have a preferred day of the week?", "cancel": "I can help you cancel or reschedule. Could you tell me your appointment date?", "doctor": "We have several doctors available. Do you have a preference for a specific doctor?", "insurance": "We accept most major insurance plans. Could you tell me your provider?", "urgent": "For urgent matters, I'd recommend our same-day appointment slots. Let me check what's open." } },
 ];
 
-function RobotFace({ size = 32, color }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width={size} height={size} aria-hidden="true">
-      <line x1="16" y1="6" x2="16" y2="2" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="16" cy="1.5" r="1.5" fill={color} />
-      <rect x="5" y="6" width="22" height="17" rx="5" fill={color} />
-      <ellipse cx="11" cy="13" rx="2.5" ry="3" fill="#0A0A0B" />
-      <ellipse cx="21" cy="13" rx="2.5" ry="3" fill="#0A0A0B" />
-      <circle cx="11.5" cy="12.5" r="1" fill={color} opacity="0.6" />
-      <circle cx="21.5" cy="12.5" r="1" fill={color} opacity="0.6" />
-      <path d="M12 19Q16 22 20 19" stroke="#0A0A0B" strokeWidth="1.2" fill="none" strokeLinecap="round" />
-      <rect x="1" y="10" width="4" height="5" rx="2" fill={color} opacity="0.8" />
-      <rect x="27" y="10" width="4" height="5" rx="2" fill={color} opacity="0.8" />
-    </svg>
-  );
-}
-
 export default function Demo() {
   usePageTitle("Try AI Voice Demo — DoAide Voice");
   const [scenario, setScenario] = useState(DEMO_SCENARIOS[0]);
@@ -96,8 +79,11 @@ export default function Demo() {
     <div className="landing-root">
       <header className="landing-header landing-visible">
         <a href="https://doaide.com" className="landing-brand">
-          <RobotFace size={28} color="#F0B429" />
-          <span className="landing-brand-text">DoAide <em>Voice</em></span>
+          <span className="landing-brand-text">
+            <span className="landing-brand-doaide">DoAide</span>
+            <span className="landing-brand-sep">|</span>
+            <span className="landing-brand-product">Voice</span>
+          </span>
         </a>
         <div style={{ marginLeft: "auto", display: "flex", gap: "0.75rem", alignItems: "center" }}>
           <Link to="/" className="btn btn-ghost">Home</Link>
@@ -126,7 +112,12 @@ export default function Demo() {
 
           <div className="demo-chat-container">
             <div className="demo-chat-header">
-              <RobotFace size={24} color="#F0B429" />
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0D9488" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" />
+                <path d="M19 10v2a7 7 0 01-14 0v-2" />
+                <line x1="12" y1="19" x2="12" y2="23" />
+                <line x1="8" y1="23" x2="16" y2="23" />
+              </svg>
               <span>AI Agent — {scenario.label}</span>
               <span className="badge badge-success" style={{ marginLeft: "auto" }}>Live</span>
             </div>
@@ -182,9 +173,9 @@ export default function Demo() {
       <footer className="landing-footer">
         <div className="landing-footer-bottom">
           <a href="https://doaide.com" className="landing-footer-home">
-            <RobotFace size={16} color="#F0B429" />
-            doaide.com
+            <span style={{ color: "#0D9488", fontWeight: 700 }}>DoAide</span>
           </a>
+          <span className="landing-footer-badge">A DoAide Product</span>
           <span className="landing-footer-copy">&copy; 2026 DoAide</span>
         </div>
       </footer>
