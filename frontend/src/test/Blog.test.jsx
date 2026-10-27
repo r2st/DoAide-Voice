@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { describe, expect, it } from "vitest";
 import Blog from "../pages/Blog";
+import useSEO from "../hooks/useSEO";
 
 function renderBlog(path = "/blog") {
   return render(
@@ -59,10 +60,22 @@ describe("Blog page", () => {
     expect(screen.getByText("Why Indian Language TTS Is Different")).toBeInTheDocument();
   });
 
-  it("injects JSON-LD structured data for blog posts with FAQs", () => {
-    renderBlog("/blog/free-voice-recorder-online-india");
-    const scripts = document.querySelectorAll('script[type="application/ld+json"]');
-    const types = Array.from(scripts).map((s) => JSON.parse(s.textContent)["@type"]);
+  it("gets BlogPosting and FAQPage JSON-LD for posts with FAQs (via useSEO)", () => {
+    const path = "/blog/free-voice-recorder-online-india";
+    function SEO() {
+      useSEO(path);
+      return null;
+    }
+    render(
+      <MemoryRouter initialEntries={[path]}>
+        <SEO />
+        <Routes>
+          <Route path="/blog/:slug" element={<Blog />} />
+        </Routes>
+      </MemoryRouter>
+    );
+    const script = document.querySelector("script[data-seo-jsonld]");
+    const types = JSON.parse(script.textContent)["@graph"].map((n) => n["@type"]);
     expect(types).toContain("BlogPosting");
     expect(types).toContain("FAQPage");
   });

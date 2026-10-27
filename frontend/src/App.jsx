@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Shell from "./components/Shell";
 import { useAuth } from "./hooks/useAuth";
 import AgentBuilder from "./pages/AgentBuilder";
@@ -21,6 +21,7 @@ import Settings from "./pages/Settings";
 import SpeechToText from "./pages/SpeechToText";
 import TextToSpeech from "./pages/TextToSpeech";
 import VoiceRecorder from "./pages/VoiceRecorder";
+import useSEO from "./hooks/useSEO";
 
 function Protected({ children }) {
   const { user, loading } = useAuth();
@@ -30,6 +31,7 @@ function Protected({ children }) {
 }
 
 export default function App() {
+  useSEO(useLocation().pathname.replace(/\/+$/, "") || "/");
   return (
     <Routes>
       <Route path="/" element={<Landing />} />
